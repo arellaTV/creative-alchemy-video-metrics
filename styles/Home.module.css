@@ -3,13 +3,17 @@
 }
 
 .main {
-  min-height: 100vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.loginButton {
+  border: 1px solid #222;
+  padding: 1em;
 }
 
 .footer {
@@ -125,5 +129,8 @@
   }
   .logo img {
     filter: invert(1);
+  }
+  .loginButton {
+    border: 1px solid white;
   }
 }

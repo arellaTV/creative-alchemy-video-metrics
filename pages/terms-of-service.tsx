@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Footer from '../components/Footer'
 import styles from '../styles/TermsOfService.module.css'
 
 const TermsOfService: NextPage = () => {
@@ -95,6 +96,7 @@ const TermsOfService: NextPage = () => {
         <li>By email: hello@creativealchemy.org</li>
         </ul>
       </main>
+      <Footer />
     </div>
   )
 }
