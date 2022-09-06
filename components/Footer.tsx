@@ -7,7 +7,7 @@ const Footer: NextPage = () => {
   return (
     <footer className={styles.footer}>
       <Link href="/">
-        <a href="/">
+        <a>
           Creative Alchemy Video Metrics
         </a>
       </Link>
