@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import Footer from '../components/Footer'
 import styles from '../styles/Home.module.css'
 
@@ -20,7 +21,9 @@ const Home: NextPage = () => {
         <p>See metrics for your favorite videos</p>
 
         <p className={styles.description}>
-          <a className={styles.loginButton} href="/api/oauth">Login with TikTok</a>
+          <Link href="/api/oauth">
+            <a className={styles.loginButton} href="/api/oauth">Login with TikTok</a>
+          </Link>
         </p>
       </main>
 
