@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
         <p className={styles.description}>
           <Link href="/api/oauth">
-            <a className={styles.loginButton} href="/api/oauth">Login with TikTok</a>
+            <a className={styles.loginButton}>Login with TikTok</a>
           </Link>
         </p>
       </main>
