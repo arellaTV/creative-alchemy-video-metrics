@@ -1,7 +1,7 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Footer from '../components/Footer'
-import styles from '../styles/PrivacyPolicy.module.css'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Footer from '../components/Footer';
+import styles from '../styles/PrivacyPolicy.module.css';
 
 const PrivacyPolicy: NextPage = () => {
   return (
@@ -65,7 +65,7 @@ const PrivacyPolicy: NextPage = () => {
       </main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default PrivacyPolicy
+export default PrivacyPolicy;

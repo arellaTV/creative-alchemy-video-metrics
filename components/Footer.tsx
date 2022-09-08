@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
-import Link from 'next/link'
-import styles from './Footer.module.css'
+import type { NextPage } from 'next';
+import Link from 'next/link';
+import styles from './Footer.module.css';
 import CookieConsent from "react-cookie-consent";
 
 const Footer: NextPage = () => {
@@ -15,7 +15,7 @@ const Footer: NextPage = () => {
       <Link href="/terms-of-service"><a>Terms of Service</a></Link>
       <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

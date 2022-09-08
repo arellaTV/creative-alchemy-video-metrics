@@ -1,7 +1,7 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Footer from '../components/Footer'
-import styles from '../styles/TermsOfService.module.css'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Footer from '../components/Footer';
+import styles from '../styles/TermsOfService.module.css';
 
 const TermsOfService: NextPage = () => {
   return (
@@ -98,7 +98,7 @@ const TermsOfService: NextPage = () => {
       </main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default TermsOfService
+export default TermsOfService;

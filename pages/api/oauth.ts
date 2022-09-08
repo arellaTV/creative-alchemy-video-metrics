@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { setCookie } from 'cookies-next';
 
 type Data = {
@@ -12,8 +12,6 @@ export default function handler(
 ) {
   const csrfState = Math.random().toString(36).substring(2);
   setCookie('csrfState', csrfState, { req, res, maxAge: 60000 });
-
-  console.log({ env: process.env })
 
   let url = 'https://www.tiktok.com/auth/authorize/';
 
