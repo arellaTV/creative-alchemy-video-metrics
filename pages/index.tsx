@@ -25,6 +25,12 @@ const Home: NextPage = () => {
     });
   }, [FB]);
 
+  const handleFacebookLogin = () => {
+    FB.login((response:any) => {
+      console.log({ handleFacebookLoginResponse: response });
+    });
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -57,8 +63,9 @@ const Home: NextPage = () => {
 
         <p className={styles.description}>
           <Link href="/api/oauth">
-            <a className={styles.loginButton}>Login with TikTok</a>
+            <a className={styles.loginButton}>Continue with TikTok</a>
           </Link>
+          <a className={styles.loginButton} onClick={handleFacebookLogin}>Continue with Facebook</a>
         </p>
       </main>
 
