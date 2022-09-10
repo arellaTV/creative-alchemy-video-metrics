@@ -1,3 +1,4 @@
+import axios from "axios";
 import NextAuth from "next-auth"
 
 export const authOptions = {
@@ -23,24 +24,43 @@ export const authOptions = {
           grant_type: 'authorization_code',
         },
         async request(context) {
-          console.log({ context });
+          let token_endpoint = 'https://open-api.tiktok.com/oauth/access_token/';
+          token_endpoint += '?client_key=' + process.env.TIKTOK_API_CLIENT_KEY;
+          token_endpoint += '&client_secret=' + process.env.TIKTOK_API_CLIENT_SECRET;
+          token_endpoint += '&code=' + context.params.code;
+          token_endpoint += '&grant_type=authorization_code';
+          const { data: response } = await axios.post(token_endpoint);
           return {
-            tokens: {},
-          }
+            tokens: {
+              access_token: response?.data?.access_token,
+              expires_in: response?.data?.expires_in,
+              refresh_token: response?.data?.refresh_token,
+            }
+          };
         },
       },
       userinfo: {
-        url: "https://open.tiktokapis.com/v2/user/info",
+        url: "https://open-api.tiktok.com/user/info/",
         params: {
-          fields: "open_id,union_id,avatar_url"
+          fields: "open_id,display_name,avatar_url"
+        },
+        async request(context) {
+          let userinfo_endpoint = 'https://open-api.tiktok.com/user/info/';
+          const { data: response } = await axios.post(userinfo_endpoint, {
+            access_token: context.tokens.access_token,
+            fields: ["open_id", "display_name", "avatar_large_url"]
+          })
+
+          // context contains useful properties to help you make the request.
+          return response?.data?.user || {};
         }
       },
       profile(profile) {
         console.log({ profile })
         return {
-          id: profile?.data?.open_id,
-          name: profile?.data?.display_name,
-          image: profile?.data?.avatar_large_url,
+          id: profile?.open_id,
+          name: profile?.display_name,
+          image: profile?.avatar_large_url,
         }
       },
       clientId: process.env.TIKTOK_API_CLIENT_KEY,
@@ -48,6 +68,5 @@ export const authOptions = {
     },
     // ...add more providers here
   ],
-  debug: true,
 }
 export default NextAuth(authOptions)
