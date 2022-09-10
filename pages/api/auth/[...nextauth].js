@@ -16,16 +16,19 @@ export const authOptions = {
         },
       },
       token: "https://open-api.tiktok.com/oauth/access_token",
-      userinfo: "https://open.tiktokapis.com/v2/user/info",
+      userinfo: {
+        url: "https://open.tiktokapis.com/v2/user/info",
+        params: {
+          fields: "open_id,union_id,avatar_url"
+        }
+      },
       profile(profile) {
         console.log({ profile })
-        return {}
-        // return {
-        //   id: profile.id,
-        //   name: profile.kakao_account?.profile.nickname,
-        //   email: profile.kakao_account?.email,
-        //   image: profile.kakao_account?.profile.profile_image_url,
-        // }
+        return {
+          id: profile?.data?.open_id,
+          name: profile?.data?.display_name,
+          image: profile?.data?.avatar_large_url,
+        }
       },
       clientId: process.env.TIKTOK_API_CLIENT_KEY,
       clientSecret: process.env.TIKTOK_API_CLIENT_SECRET,
