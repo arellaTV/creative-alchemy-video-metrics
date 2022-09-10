@@ -22,6 +22,12 @@ export const authOptions = {
           client_secret: process.env.TIKTOK_API_CLIENT_SECRET,
           grant_type: 'authorization_code',
         },
+        async request(context) {
+          console.log({ context });
+          return {
+            tokens: {},
+          }
+        },
       },
       userinfo: {
         url: "https://open.tiktokapis.com/v2/user/info",
