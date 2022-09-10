@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Footer from '../components/Footer'
 import styles from '../styles/Home.module.css'
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Home: NextPage = () => {
   return (
@@ -21,9 +22,7 @@ const Home: NextPage = () => {
         <p>See metrics for your favorite videos</p>
 
         <p className={styles.description}>
-          <Link href="/api/oauth">
-            <a className={styles.loginButton}>Login with TikTok</a>
-          </Link>
+          <a className={styles.loginButton} onClick={() => signIn()}>Login with TikTok</a>
         </p>
       </main>
 
