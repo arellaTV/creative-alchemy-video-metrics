@@ -48,6 +48,6 @@ export const authOptions = {
     },
     // ...add more providers here
   ],
-  debugger: true,
+  debug: true,
 }
 export default NextAuth(authOptions)
