@@ -68,5 +68,21 @@ export const authOptions = {
     },
     // ...add more providers here
   ],
+  callbacks: {
+    async session({ session, token }) {
+      session.user.id = token.id;
+      session.accessToken = token.accessToken;
+      return session;
+    },
+    async jwt({ token, user, account }) {
+      if (user) {
+        token.id = user.id;
+      }
+      if (account) {
+        token.accessToken = account.access_token;
+      }
+      return token;
+    },
+  },
 }
 export default NextAuth(authOptions)
