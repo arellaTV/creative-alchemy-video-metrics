@@ -15,7 +15,14 @@ export const authOptions = {
           scope: "video.list",
         },
       },
-      token: "https://open-api.tiktok.com/oauth/access_token",
+      token: {
+        url: "https://open-api.tiktok.com/oauth/access_token",
+        params: {
+          client_key: process.env.TIKTOK_API_CLIENT_KEY,
+          client_secret: process.env.TIKTOK_API_CLIENT_SECRET,
+          grant_type: 'authorization_code',
+        },
+      },
       userinfo: {
         url: "https://open.tiktokapis.com/v2/user/info",
         params: {
