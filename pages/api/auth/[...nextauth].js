@@ -7,7 +7,15 @@ export const authOptions = {
   providers: [
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      authorization: {
+        params : {
+          scope : [
+              'instagram_basic',
+              'pages_show_list',
+          ],
+        },
+      },
     }),
     {
       id: "tiktok",
