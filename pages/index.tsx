@@ -24,7 +24,8 @@ const Home: NextPage = () => {
         <p>See metrics for your favorite videos</p>
 
         <p className={styles.description}>
-          <a className={styles.loginButton} onClick={() => signIn()}>Login with TikTok</a>
+          <a className={styles.loginButton} onClick={() => signIn("tiktok")}>Continue with TikTok</a>
+          <a className={styles.loginButton} onClick={() => signIn("facebook")}>Continue with Facebook</a>
         </p>
       </main>
 
