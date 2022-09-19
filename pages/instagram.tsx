@@ -3,15 +3,10 @@ import Head from 'next/head'
 import Footer from '../components/Footer'
 import styles from '../styles/Home.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
-import { useRouter } from 'next/router'
 
-const Home: NextPage = () => {
-  const router = useRouter()
+const Instagram: NextPage = () => {
   const { data: session, status } = useSession()
-
-  if (status === 'authenticated') {
-    router.push('/instagram');
-  }
+  console.log({ session, status });
 
   return (
     <div className={styles.container}>
@@ -26,12 +21,11 @@ const Home: NextPage = () => {
           Creative Alchemy<br />Video Metrics
         </h1>
 
-        <p>See metrics for your favorite videos</p>
+        <p>See metrics for your Instagram Posts</p>
 
-        <p className={styles.description}>
-          <a className={styles.loginButton} onClick={() => signIn("tiktok")}>Continue with TikTok</a>
-          <a className={styles.loginButton} onClick={() => signIn("facebook")}>Continue with Facebook</a>
-        </p>
+        <div className={styles.description}>
+          Render instagram posts here
+        </div>
       </main>
 
       <Footer />
@@ -39,4 +33,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Instagram
